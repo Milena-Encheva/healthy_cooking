@@ -1,0 +1,106 @@
+@import './home.css';
+@import './login.css';
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css');
+
+/* Global Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Header Styles */
+.material-header {
+    background-color: #C3E6CB; /* Pale pastel green background */
+    color: #333; /* Dark text color */
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Shadow for header */
+}
+
+.material-header .material-icons {
+    font-size: 24px; /* Icon size */
+    cursor: pointer;
+}
+
+.material-header h1 {
+    margin: 0;
+    font-size: 28px; /* Header text size */
+}
+
+/* Footer Styles */
+.material-footer {
+    background-color: #C3E6CB; /* Pale pastel green background */
+    color: #333; /* Dark text color */
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed; /* Fixed position at the bottom */
+    bottom: 0;
+    width: calc(100% - 40px); /* Subtracting the padding from the width */
+    box-shadow: 0 -2px 5px rgba(0,0,0,0.2); /* Shadow for footer */
+}
+
+/* Main Content Styles */
+main {
+    padding: 20px; /* Add padding to main content */
+}
+
+/* Additional Styling for Links */
+a {
+    color: #4CAF50; /* Dark green color for links */
+    text-decoration: none; /* Remove default underline */
+}
+
+a:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+/* Additional Styles for Body */
+body {
+    font-family: 'Satisfy', cursive;
+    font-size: large;
+    color: #333;
+    background: linear-gradient(to right, #F0FAF0, #E0F7E0, #F0FAF0);
+    padding-bottom: 100px; /* Adjust this value according to the height of your footer */
+}
+
+/* Navbar Styles */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.navbar-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.navbar-brand {
+    font-size: 24px;
+}
+
+.navbar-menu {
+    display: flex;
+    gap: 20px;
+}
+
+.navbar-menu a {
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.navbar-menu a:hover {
+    color: #4CAF50;
+}

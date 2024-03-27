@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+{% block main_content %}
+    <div class="category-container">
+        {% for category in categories %}
+        <div class="category-card">
+            <img src="{{ category.photo }}" alt="{{ category.name }}">
+            <h3>{{ category.name }}</h3>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock %}
+</html>

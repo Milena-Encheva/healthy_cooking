@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load filters %}
+{% load static %}
+
+{% block main_content %}
+{#    <div class="login-register-div">#}
+{#        <div class="login-register-box">#}
+        <h1>Cooking tales</h1>
+
+        <!-- Start Register Form -->
+        <form action="{% url 'signup user' %}" method="post">
+            {{ form.as_p }}
+            <!-- Register Button -->
+            <button type="submit">Register</button>
+            {% csrf_token %}
+        </form>
+        <!-- End Register Form -->
+
+{#        </div>#}
+{#        <div class="second-option">#}
+
+            <!-- Link to Login Page -->
+            <p>Have an account? <a href="#">Log in</a></p>
+{#        </div>#}
+{#    </div>#}
+{% endblock %}

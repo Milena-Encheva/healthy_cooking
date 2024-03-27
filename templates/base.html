@@ -1,0 +1,33 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<!-- Starts Head Section -->
+<head>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="icon" type="image/x-icon" href="{% static 'images/cooking_hat.png' %}">
+    <title>Cooking tales</title>
+</head>
+
+<body>
+    <nav class="navbar">
+        <header class="material-header">
+            <span class="material-icons">menu</span>
+            <h1>Cooking tales</h1>
+            <span class="material-icons">search</span>
+        </header>
+    </nav>
+
+    {% block main_content %}
+    {% endblock %}
+
+    <footer class="material-footer">
+        <div>© 2024 Cooking tales </div>
+        <div>
+            <span class="material-icons">email</span>
+            <span class="material-icons">phone</span>
+        </div>
+    </footer>
+</body>
+
+</html>
