@@ -16,18 +16,20 @@
     padding: 20px;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-content: center;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Shadow for header */
 }
 
 .material-header .material-icons {
-    font-size: 24px; /* Icon size */
+    font-size: 30px; /* Icon size */
     cursor: pointer;
 }
 
 .material-header h1 {
-    margin: 0;
-    font-size: 28px; /* Header text size */
+    margin: 10px;
+    font-size: 35px;
+    gap: normal;
+;
 }
 
 /* Footer Styles */
@@ -51,8 +53,9 @@ main {
 
 /* Additional Styling for Links */
 a {
-    color: #4CAF50; /* Dark green color for links */
+    color: #333333; /* Dark green color for links */
     text-decoration: none; /* Remove default underline */
+    font-size: 30px;
 }
 
 a:hover {
@@ -81,13 +84,15 @@ body {
 
 .navbar-inner {
     display: flex;
-    justify-content: space-between;
+    justify-content: center; /* Center horizontally */
     align-items: center;
-    padding: 10px 20px;
+    padding: 20px 20px;
 }
 
-.navbar-brand {
-    font-size: 24px;
+
+.navbar-brand {;
+    font-size: 40px;
+    gap: 20px;
 }
 
 .navbar-menu {
@@ -95,12 +100,12 @@ body {
     gap: 20px;
 }
 
-.navbar-menu a {
-    color: #333;
-    text-decoration: none;
-    font-weight: bold;
+.navbar-menu .material-icons {
+    cursor: pointer;
 }
 
-.navbar-menu a:hover {
-    color: #4CAF50;
+@media (max-width: 768px) {
+    .navbar-inner {
+        padding: 10px; /* Adjust padding for smaller screens */
+    }
 }

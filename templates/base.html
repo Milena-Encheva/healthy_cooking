@@ -10,11 +10,16 @@
 </head>
 
 <body>
-    <nav class="navbar">
+        <nav class="navbar">
         <header class="material-header">
-            <span class="material-icons">menu</span>
-            <h1>Cooking tales</h1>
-            <span class="material-icons">search</span>
+            <div class="navbar-menu">
+                 <span class="material-icons">About</span>
+            </div>
+            <h1 class="navbar-brand">  Cooking tales</h1>
+            <div class="navbar-menu">
+                <a href="{% url 'login' %}" class="material-link ">Login</a>
+                <span class="material-icons">Register</span>
+            </div>
         </header>
     </nav>
 

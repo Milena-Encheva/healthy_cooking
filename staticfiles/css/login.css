@@ -1,52 +1,41 @@
 .login-register-div {
-    margin-top: 13%;
+    width: 100%; /* Ensure it spans the width of the body */
+    height: 100vh; /* Make it take up the full height of the viewport */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.login-register-box, .second-option {
-    display: block;
+.login-register-box {
     width: 300px;
-    background-color: rgb(255, 255, 255);
-    border: 1px solid rgb(156, 152, 152);
+    background-color: #fff;
+    border: 1px solid #ccc;
     padding: 40px;
-    margin-bottom: 15px;
-    border-radius: 3px;
-    border: 1px solid;
-    box-shadow: 1px 2px 3px #888888;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    text-align: center;
 }
 
 .login-register-box h1 {
-    font-family: 'Indie Flower', cursive;
+    font-family: 'FontAwesome';
     font-size: 40px;
-    text-align: center;
-    margin-top: -10px;
-}
-
-.login-register-box label {
-    display: none;
-}
-
-.login-register-box input {
-    background-color: rgb(240, 230, 230);
-    border: 0.1px solid rgb(186, 184, 184);
-    border-radius: 3px;
-    height: 30px;
-    width: 100%;
-    padding-left: 2px;
-    margin-top: 10px;
-}
-
-.login-register-box button {
-    background-color: rgb(0, 162, 255);
-    color: white;
-    font-weight: bold;
-    border: none;
-    width: 100%;
-    border-radius: 3px;
-    margin-top: 10px;
-    height: 30px;
+    color: #333;
 }
 
 .second-option {
-    text-align: center;
-    padding: 20px;
+    text-align: justify;
+    margin-top: 20px;
+}
+
+.second-option p {
+    margin: 10px 0;
+}
+
+.second-option a {
+    color: #007bbf;
+    text-decoration: none;
+}
+
+.second-option a:hover {
+    text-decoration: underline;
 }
