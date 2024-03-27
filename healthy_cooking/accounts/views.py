@@ -21,7 +21,7 @@ class SignInUserView(auth_views.LoginView):
 
 
 class SignUpUserView(views.CreateView):
-    template_name = "accounts/signup_user.html"
+    template_name = "accounts/register.html"
     form_class = CookingUserCreationForm
     success_url = reverse_lazy("home")
 
