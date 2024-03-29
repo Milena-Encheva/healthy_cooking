@@ -2,7 +2,8 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<!-- Starts Head Section -->
+
+
 <head>
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     <link rel="icon" type="image/x-icon" href="{% static 'images/cooking_hat.png' %}">
@@ -10,18 +11,66 @@
 </head>
 
 <body>
-        <nav class="navbar">
-        <header class="material-header">
-            <div class="navbar-menu">
-                 <span class="material-icons">About</span>
+    <nav class="navbar">
+            <div class="material-header">
+                <div class="logo">
+                    <!-- Link to Home Page -->
+                    <a href="{% url 'home' %}">
+                        <img width="50px" src="/staticfiles/images/cooking_hat.png" alt="img1">
+                    </a>
+
+                    <!-- Link to Home Page -->
+                    <a class="home" href="{% url 'home' %}">
+                        <i>Cooking tales</i>
+                    </a>
+                </div>
+
+                <div class="navbar-menu">
+                    <ul class="nav-group">
+{#                        <li class="nav-item">#}
+{#    #}
+{#                            <!-- Link to Add Pet Page -->#}
+{#                            <a href="{% url 'create_pet' %}">#}
+{#                                <i>Add Pet</i>#}
+{#                            </a>#}
+{#                        </li>#}
+{#                        <li class="nav-item">#}
+{#                            #}
+{#                            <a href="{% url 'create photo' %}">#}
+{#                                <i>Add Photo</i>#}
+{#                            </a>#}
+{#                        </li>#}
+                        {% if request.user.is_authenticated %}
+                        <li class="material-link">
+
+                            <a href="{% url 'profile_details' pk=request.user.pk %}">
+                                <i>Profile</i>
+                            </a>
+                        </li>
+                        <li class="material-link">
+                            <!-- Log out -->
+                            <a href="{% url 'logout' %}">
+                                <i>Log out</i>
+                            </a>
+                        </li>
+                        {% else %}
+                        <li class="material-link">
+                            <!-- Link to Login Page -->
+                            <a href="{% url 'login' %}">
+                                <i>Login</i>
+                            </a>
+                        </li>
+                        <li class="material-link">
+                            <a href=""{% url 'register' %}>
+                                <i>Register</i>
+                            </a>
+                        </li>
+                        {% endif %}
+
+                    </ul>
+                </div>
             </div>
-            <h1 class="navbar-brand">  Cooking tales</h1>
-            <div class="navbar-menu">
-                <a href="{% url 'login' %}" class="material-link ">Login</a>
-                <a href="{% url 'register' %}" class="material-link ">Register</a>
-            </div>
-        </header>
-    </nav>
+        </nav>
 
     {% block main_content %}
     {% endblock %}

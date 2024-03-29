@@ -2,6 +2,7 @@
     width: 100%; /* Ensure it spans the width of the body */
     height: 100vh; /* Make it take up the full height of the viewport */
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }

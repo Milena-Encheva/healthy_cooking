@@ -109,3 +109,7 @@ body {
         padding: 10px; /* Adjust padding for smaller screens */
     }
 }
+
+.navbar-menu .material-link {
+    position: relative;
+}

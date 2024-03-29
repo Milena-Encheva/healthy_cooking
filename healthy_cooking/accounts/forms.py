@@ -1,5 +1,4 @@
 from django.contrib.auth.forms import BaseUserCreationForm
-
 from healthy_cooking.accounts.models import CookingUser
 from django.contrib.auth import forms as auth_forms, get_user_model
 

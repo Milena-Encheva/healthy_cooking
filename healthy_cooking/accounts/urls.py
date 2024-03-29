@@ -1,8 +1,14 @@
-from django.urls import path
 
-from healthy_cooking.accounts.views import SignInUserView, SignUpUserView
+from django.urls import path, include
+from healthy_cooking.accounts.views import LogInUserView, RegisterUserView, logout_user, ProfileDetailsView
 
 urlpatterns = (
-    path("register/", SignUpUserView.as_view(), name="register"),
-    path("login/", SignInUserView.as_view(), name="login"),
+    path("register/", RegisterUserView.as_view(), name="register"),
+    path("login/", LogInUserView.as_view(), name="login"),
+    path("logout/", logout_user, name='logout'),
+    path(
+            "profile/<int:pk>/", include([
+                path("", ProfileDetailsView.as_view(), name="profile_details"),
+            ]),
+        )
 )
