@@ -1,24 +1,16 @@
 from django import forms
-
 from healthy_cooking.recipes.models import Recipe
 
 
-class PetBaseForm(forms.ModelForm):
+class RecipeBaseForm(forms.ModelForm):
     class Meta:
         model = Recipe
-        fields = ('name', 'date_of_birth', 'pet_photo')
-
+        fields = ['title', 'ingredients', 'instructions', 'photo', 'category']
         widgets = {
-            'name': forms.TextInput(attrs={'placeholder': 'Pet name'}),
-            'date_of_birth': forms.DateInput(attrs={'type': 'date'}),
-            'pet_photo': forms.URLInput(attrs={"placeholder": 'Link to image'}),
-        }
-
-        labels = {
-            'name': 'Pet name',
-            'pet_photo': 'Link to image',
+            'instructions': forms.Textarea(attrs={'cols': 80, 'rows': 20}),
+            'ingredients': forms.Textarea(attrs={'cols': 80, 'rows': 10}),
         }
 
 
-class PetCreateForm(PetBaseForm):
+class RecipeCreateForm(RecipeBaseForm):
     pass

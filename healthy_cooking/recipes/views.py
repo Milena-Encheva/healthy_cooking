@@ -1,20 +1,26 @@
-from django.shortcuts import render
+from django.urls import reverse_lazy, reverse
 from django.views import generic as view
+from healthy_cooking.recipes.models import Recipe
+from healthy_cooking.recipes.forms import RecipeCreateForm
+from django.contrib.auth.mixins import LoginRequiredMixin
 
-# Create your views here.
 
-
-class PetCreateView(view.CreateView):
-    form_class = PetCreateForm
-    template_name = 'pets/create_pet.html'
+class RecipeCreateView(view.CreateView):
+    model = Recipe
+    form_class = RecipeCreateForm
+    template_name = 'recipes/add_recipe.html'
 
     def get_success_url(self):
-        return reverse('details pet', kwargs={
-            'username': "milenae",
-            'pet_slug': self.object.slug,
+        return reverse("recipe_detail", kwargs={
+            "pk": self.object.pk,
         })
 
-    def get_form(self, form_class=None):
-        form = super().get_form(form_class=form_class)
+    def form_valid(self, form):
         form.instance.user = self.request.user
-        return form
+        return super().form_valid(form)
+
+
+class RecipeDetailView(view.DetailView):
+    model = Recipe
+    template_name = 'recipes/recipe_details.html'
+    slug_url_kwarg = 'pet_slug'
