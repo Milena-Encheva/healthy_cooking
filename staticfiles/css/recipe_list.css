@@ -1,0 +1,36 @@
+/* style.css */
+
+body {
+    padding-top: 50px; /* Adjust this value based on the height of your fixed navbar */
+}
+
+/* Recipe Styles */
+.recipes-list {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping to the next line if needed */
+    justify-content: space-between; /* Distribute items evenly along the main axis with extra space */
+}
+
+.recipe {
+    width: calc(25% - 20px); /* Set the width to occupy 25% of the container minus margins */
+    margin: 10px;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    text-align: center;
+}
+
+.recipe h3 {
+    margin-bottom: 10px;
+}
+
+.recipe img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.recipe p {
+    margin-bottom: 5px;
+}

@@ -1,17 +1,31 @@
 {% extends 'base.html' %}
 {% load static %}
 
-<!DOCTYPE html>
-<html lang="en">
-
 {% block main_content %}
-    <div class="category-container">
-        {% for category in categories %}
-        <div class="category-card">
-            <img src="{{ category.photo }}" alt="{{ category.name }}">
-            <h3>{{ category.name }}</h3>
+    <div class="homepage-container">
+        <div class="category-container">
+            {% for category in categories %}
+                <div class="category-card">
+                    <a href="{% url 'recipes_by_category' category.name %}">
+                        <img src="{{ category.photo }}" alt="{{ category.name }}">
+                        <h3>{{ category.name }}</h3>
+                    </a>
+                </div>
+            {% endfor %}
+            <div class="category-card">
+                {% if recipe_of_the_day %}
+                    <a href="{% url 'recipe_detail' recipe_of_the_day.id %}">
+                        <img src="{{ recipe_of_the_day.photo.url }}" alt="{{ recipe_of_the_day.title }}">
+                        <h3>Recipe of the day</h3>
+                    </a>
+                {% endif %}
+            </div>
         </div>
-        {% endfor %}
+           <!-- Button for all recipes -->
+        <div class="all-recipes-button">
+            <a href="{% url 'recipe_list' %}" class="btn">All Recipes</a>
+        </div>
     </div>
+
+
 {% endblock %}
-</html>

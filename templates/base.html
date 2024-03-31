@@ -3,7 +3,6 @@
 <!DOCTYPE html>
 <html lang="en">
 
-
 <head>
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     <link rel="icon" type="image/x-icon" href="{% static 'images/cooking_hat.png' %}">
@@ -12,65 +11,62 @@
 
 <body>
     <nav class="navbar">
-            <div class="material-header">
-                <div class="logo">
-                    <!-- Link to Home Page -->
-                    <a href="{% url 'home' %}">
-                        <img width="35px" src="/staticfiles/images/cooking_hat.png" alt="img1">
-                    </a>
-
-                    <!-- Link to Home Page -->
-                    <a class="home" href="{% url 'home' %}">
-                        <i>Cooking tales</i>
-                    </a>
-                </div>
-
-                <div class="navbar-menu">
-                    <ul class="nav-group">
-                        <li class="nav-item">
-
-                            <!-- Link to Add Pet Page -->
-                            <a href="{% url 'add recipe' %}">
-                                <i>Add Recipe</i>
-                            </a>
-                        </li>
-{#                        <li class="nav-item">#}
-{##}
-{#                            <a href="{% url 'create photo' %}">#}
-{#                                <i>Add Photo</i>#}
-{#                            </a>#}
-{#                        </li>#}
-                        {% if request.user.is_authenticated %}
-                        <li class="material-link">
-
-                            <a href="{% url 'profile_details' pk=request.user.pk %}">
-                                <i>Profile</i>
-                            </a>
-                        </li>
-                        <li class="material-link">
-                            <!-- Log out -->
-                            <a href="{% url 'logout' %}">
-                                <i>Log out</i>
-                            </a>
-                        </li>
-                        {% else %}
-                        <li class="material-link">
-                            <!-- Link to Login Page -->
-                            <a href="{% url 'login' %}">
-                                <i>Login</i>
-                            </a>
-                        </li>
-                        <li class="material-link">
-                            <a href=""{% url 'register' %}>
-                                <i>Register</i>
-                            </a>
-                        </li>
-                        {% endif %}
-
-                    </ul>
-                </div>
+        <div class="material-header">
+            <div class="navbar-menu">
+                <ul class="nav-group">
+                    <li class="nav-item {% if request.resolver_match.url_name == 'add recipe' %} active {% endif %}">
+                        <!-- Link to Add Recipe Page -->
+                        <a href="{% url 'add recipe' %}">
+                            <i class="fas fa-plus"></i> Add Recipe
+                        </a>
+                    </li>
+                </ul>
             </div>
-        </nav>
+
+            <div class="logo">
+                <!-- Link to Home Page -->
+                <a href="{% url 'home' %}">
+                    <img width="35px" src="/staticfiles/images/cooking_hat.png" alt="img1">
+                </a>
+                <!-- Link to Home Page -->
+                <a class="home" href="{% url 'home' %}">
+                    <i>Cooking tales</i>
+                </a>
+            </div>
+
+            <div class="navbar-menu">
+                <ul class="nav-group">
+                    {% if request.user.is_authenticated %}
+                    <li class="nav-item {% if request.resolver_match.url_name == 'profile_details' %} active {% endif %}">
+                        <!-- Link to Profile Page -->
+                        <a href="{% url 'profile_details' pk=request.user.pk %}">
+                            <i class="fas fa-user"></i> Profile
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <!-- Log out -->
+                        <a href="{% url 'logout' %}">
+                            <i class="fas fa-sign-out-alt"></i> Log out
+                        </a>
+                    </li>
+                    {% else %}
+                    <li class="nav-item {% if request.resolver_match.url_name == 'login' %} active {% endif %}">
+                        <!-- Link to Login Page -->
+                        <a href="{% url 'login' %}">
+                            <i class="fas fa-sign-in-alt"></i> Login
+                        </a>
+                    </li>
+                    <li class="nav-item {% if request.resolver_match.url_name == 'register' %} active {% endif %}">
+                        <!-- Link to Register Page -->
+                        <a href="{% url 'register' %}">
+                            <i class="fas fa-user-plus"></i> Register
+                        </a>
+                    </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </nav>
 
     {% block main_content %}
     {% endblock %}

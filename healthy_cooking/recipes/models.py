@@ -6,6 +6,12 @@ from healthy_cooking.common.models import Category
 UserModel = get_user_model()
 
 
+class Rating(models.Model):
+    user = models.ForeignKey(UserModel, on_delete=models.CASCADE, related_name='ratings')
+    recipe = models.ForeignKey('Recipe', on_delete=models.CASCADE, related_name='ratings')
+    rating = models.IntegerField()
+
+
 class Recipe(models.Model):
     MAX_TITLE_LENGTH = 50
     MAX_INSTRUCTION_LENGTH = 1000
@@ -25,3 +31,5 @@ class Recipe(models.Model):
             self.slug = slugify(self.title)
         return super().save(*args, **kwargs)
 
+    def average_rating(self):
+        return self.ratings.aggregate(models.Avg('rating'))['rating__avg']

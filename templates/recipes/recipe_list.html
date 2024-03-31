@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block main_content %}
+    <div class="recipes-list">
+        {% for recipe in recipes %}
+        <div class="recipe">
+            <h3><a href="{% url 'recipe_detail' recipe.pk %}">{{ recipe.title }}</a></h3>
+            <!-- Ensure your project is configured to serve media files in development -->
+            <img src="{{ recipe.photo.url }}" alt="{{ recipe.title }}">
+            <p>Posted by: {{ recipe.user.email }}</p>
+            <p>Category: {{ recipe.category.name }}</p>
+            <!-- Assuming you have a method or property `average_rating` in your Recipe model -->
+            <p>Average Rating: {{ recipe.average_rating|default:"Not rated yet" }}</p>
+        </div>
+        {% empty %}
+        <p>No recipes found.</p>
+        {% endfor %}
+    </div>
+{% endblock %}

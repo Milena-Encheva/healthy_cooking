@@ -1,26 +1,31 @@
 @import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Quicksand&family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap');
 
-/* Gradient background */
 body {
-    background: linear-gradient(120deg, #2980b9, #6dd5fa);
-    margin: 0;
-    padding: 0;
-    font-family: 'Open Sans', sans-serif;
+    padding-top: 120px; /* Adjust this value to match the height of your navbar */
+    display: flex;
+    justify-content: center; /* Align all containers in the center horizontally */
+    align-items: center; /* Align all containers in the center vertically */
+    height: 100vh; /* Set the body height to viewport height for vertical centering */
+}
+
+.homepage-container {
+    display: flex;
+    flex-direction: column; /* Change flex direction to column */
+    align-items: center; /* Center items horizontally */
 }
 
 .category-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    flex-wrap: wrap;
-    gap: 20px;
-    padding: 20px;
+    flex-wrap: wrap; /* Allow cards to wrap if they exceed container width */
+    gap: 20px; /* Add some space between cards */
+    padding: 20px; /* Add padding for better spacing */
 }
 
 .category-card {
-    width: 350px;
+    width: 250px;
     height: 400px;
     background-color: #ffffff;
     border-radius: 20px; /* Increased border radius for a fancy look */
@@ -37,15 +42,38 @@ body {
 }
 
 .category-card img {
-    max-width: 70%; /* Adjusted max-width */
-    max-height: 70%; /* Adjusted max-height */
-    object-fit: contain;
-    border-radius: 20px;
+    width: 100%; /* Make sure the image takes up the full width of its container */
+    height: 200px; /* Set a fixed height for the images */
+    object-fit: cover; /* Maintain aspect ratio and cover the entire container */
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
 }
 
+
 .category-card h3 {
-    margin: 15px 0; /* Increased margin */
-    font-size: 24px; /* Increased font size */
-    font-family: 'Satisfy', cursive; /* Fancy font */
-    color: #333; /* Darkened text color */
+    margin: 15px 0;
+    font-size: 24px;
+    font-family: 'Satisfy', cursive;
+    color: #333;
 }
+.all-recipes-button {
+    text-align: center; /* Center the button */
+    margin-top: 25px; /* Increase the margin from other elements */
+}
+
+.all-recipes-button .btn {
+    padding: 10px 30px; /* Increase padding to make the button larger */
+    background-color: #2eb872; /* Change background color to green */
+    color: #ffffff;
+    border: none;
+    border-radius: 30px; /* Increase border-radius for a rounded look */
+    text-decoration: none;
+    font-size: 24px; /* Increase font size */
+    font-weight: bold; /* Add bold font weight for emphasis */
+    transition: background-color 0.3s ease;
+}
+
+.all-recipes-button .btn:hover {
+    background-color: #209d5a; /* Darker shade of green on hover */
+}
+
