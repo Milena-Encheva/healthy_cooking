@@ -1,26 +1,28 @@
 {% load static %}
 
-
-
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ recipe.title }}</title>
-    <!-- Include any CSS or styling links here -->
+    <link rel="stylesheet" href="{% static 'css/recipe_details.css' %}">
 </head>
-
-
 <body>
-{% block main_content %}
-    <h1>{{ recipe.title }}</h1>
-    <img src="{{ recipe.photo.url }}" alt="{{ recipe.title }}">
-    <h2>Ingredients:</h2>
-    <p>{{ recipe.ingredients }}</p> <!-- Display recipe ingredients -->
-    <h2>Instructions:</h2>
-    <p>{{ recipe.instructions }}</p> <!-- Display recipe instructions -->
-    <p>Category: {{ recipe.category }}</p> <!-- Display recipe category -->
-{% endblock %}
+    <header>
+        <h1>Recipe Details</h1>
+    </header>
+    <div class="container">
+        <h1>{{ recipe.title }}</h1>
+        <img src="{{ recipe.photo.url }}" alt="{{ recipe.title }}">
+        <h2>Ingredients:</h2>
+        <p>{{ recipe.ingredients }}</p> <!-- Display recipe ingredients -->
+        <h2>Instructions:</h2>
+        <p>{{ recipe.instructions }}</p> <!-- Display recipe instructions -->
+        <p>Category: {{ recipe.category }}</p> <!-- Display recipe category -->
+    </div>
+    <footer>
+        <p>&copy; 2024 Your Recipe Website</p>
+    </footer>
 </body>
-
 </html>
