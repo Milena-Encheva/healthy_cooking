@@ -2,34 +2,33 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap');
 
 body {
-    padding-top: 120px; /* Adjust this value to match the height of your navbar */
     display: flex;
-    justify-content: center; /* Align all containers in the center horizontally */
-    align-items: center; /* Align all containers in the center vertically */
-    height: 100vh; /* Set the body height to viewport height for vertical centering */
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
 .homepage-container {
     display: flex;
-    flex-direction: column; /* Change flex direction to column */
-    align-items: center; /* Center items horizontally */
+    flex-direction: column;
+    align-items: center;
 }
 
 .category-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap; /* Allow cards to wrap if they exceed container width */
+    flex-wrap: wrap;
     gap: 20px; /* Add some space between cards */
     padding: 20px; /* Add padding for better spacing */
 }
 
 .category-card {
     width: 250px;
-    height: 400px;
+    height: 350px;
     background-color: #ffffff;
-    border-radius: 20px; /* Increased border radius for a fancy look */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced shadow */
+    border-radius: 20px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -58,11 +57,11 @@ body {
 }
 .all-recipes-button {
     text-align: center; /* Center the button */
-    margin-top: 25px; /* Increase the margin from other elements */
+    margin-top: 5px; /* Increase the margin from other elements */
 }
 
 .all-recipes-button .btn {
-    padding: 10px 30px; /* Increase padding to make the button larger */
+    padding: 5px 200px; /* Increase padding to make the button larger */
     background-color: #2eb872; /* Change background color to green */
     color: #ffffff;
     border: none;

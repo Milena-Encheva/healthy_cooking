@@ -14,3 +14,15 @@ class RecipeBaseForm(forms.ModelForm):
 
 class RecipeCreateForm(RecipeBaseForm):
     pass
+
+
+class RatingForm(forms.Form):
+    RATING_CHOICES = [
+        (1, 'Bland'),
+        (2, 'Okay'),
+        (3, 'Tasty'),
+        (4, 'Delicious'),
+        (5, 'Exquisite')
+    ]
+    rating = forms.ChoiceField(choices=RATING_CHOICES, widget=forms.RadioSelect(attrs={'class': 'rating-radio'}), label='')
+

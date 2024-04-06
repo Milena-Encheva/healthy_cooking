@@ -9,7 +9,7 @@
 
 .recipe-card {
     width: 250px;
-    height: auto; /* Let the height adjust based on content */
+    height: auto;
     background-color: #ffffff;
     border-radius: 20px; /* Increased border radius for a fancy look */
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced shadow */

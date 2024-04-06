@@ -11,6 +11,9 @@ class Rating(models.Model):
     recipe = models.ForeignKey('Recipe', on_delete=models.CASCADE, related_name='ratings')
     rating = models.IntegerField()
 
+    class Meta:
+        unique_together = ('user', 'recipe')
+
 
 class Recipe(models.Model):
     MAX_TITLE_LENGTH = 50

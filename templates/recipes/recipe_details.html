@@ -9,20 +9,67 @@
     <link rel="stylesheet" href="{% static 'css/recipe_details.css' %}">
 </head>
 <body>
-    <header>
-        <h1>Recipe Details</h1>
+    <header class="material-header">
+        <h1>{{ recipe.title }}</h1>
     </header>
     <div class="container">
-        <h1>{{ recipe.title }}</h1>
         <img src="{{ recipe.photo.url }}" alt="{{ recipe.title }}">
-        <h2>Ingredients:</h2>
-        <p>{{ recipe.ingredients }}</p> <!-- Display recipe ingredients -->
-        <h2>Instructions:</h2>
-        <p>{{ recipe.instructions }}</p> <!-- Display recipe instructions -->
-        <p>Category: {{ recipe.category }}</p> <!-- Display recipe category -->
+
+        <!-- Enhanced DetailsView for Ingredients -->
+        <div class="details-view">
+            <h3>Ingredients:</h3>
+            <p>{{ recipe.ingredients }}</p>
+        </div>
+
+        <!-- Enhanced DetailsView for Instructions -->
+        <div class="details-view">
+            <h3>Instructions:</h3>
+            <p>{{ recipe.instructions }}</p>
+        </div>
+
+        <!-- Optional: You could also make the category and rating part of a smaller DetailsView if they are important -->
+        <div class="details-view">
+            <h3>Category:</h3>
+             <p>{{ recipe.category }}</p>
+            <h3>Average Rating:</h3>
+             <p>{{ recipe.average_rating|default:"No ratings yet" }}</p>
+        </div>
+
+        <!-- Voting Section -->
+        <div class="details-view">
+                <style>
+                .rating-radio div {
+            display: inline-block;
+            margin-right: 10px;
+
+                }
+               .submit-btn {
+                padding: 10px 20px;
+                background-color: #2eb872;/* Pale green background */
+                color: #333; /* Dark text color */
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                font-size: 16px;
+                margin-top: 10px;
+                transition: background-color 0.3s; /* Smooth transition for hover effect */
+            }
+
+            .submit-btn:hover {
+                background-color: #c8e6c9; /* Slightly darker shade of green on hover */
+}
+
+                </style>
+            <h3>Rate this Recipe:</h3>
+            <form method="post" action="{% url 'vote_for_recipe' recipe.pk %}">
+                {% csrf_token %}
+                {{ rating_form.as_p }}
+
+               <button type="submit" class="submit-btn">Submit Rating</button>
+
+            </form>
+        </div>
+
     </div>
-    <footer>
-        <p>&copy; 2024 Your Recipe Website</p>
-    </footer>
 </body>
 </html>

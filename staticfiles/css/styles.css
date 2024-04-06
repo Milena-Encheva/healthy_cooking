@@ -1,6 +1,10 @@
 /* Import external stylesheets */
 @import './home.css';
+@import "./recipe_list.css";
 @import './login.css';
+@import "./recipe_details.css";
+@import "./vote_recipe.css";
+
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css');
 
 /* Global Reset */
@@ -64,15 +68,12 @@ a:hover {
 
 /* Additional Styles for Body */
 body {
+    padding-top: 160px;
     font-family: 'Satisfy', cursive;
     font-size: large;
     color: #333;
     background: linear-gradient(to right, #F0FAF0, #E0F7E0, #F0FAF0);
     padding-bottom: 100px; /* Adjust this value according to the height of your footer */
-}
-
-.all-recipes-button .btn:hover {
-    background-color: #0056b3;
 }
 
 /* Navbar Styles */
@@ -140,10 +141,6 @@ body {
     font-size: 20px; /* Adjust icon size */
 }
 
-/* Additional styling for icons on hover */
-.nav-item a i:hover {
-    color: #007bff; /* Change icon color on hover */
-}
 
 /* Responsive Styles */
 @media (max-width: 768px) {
