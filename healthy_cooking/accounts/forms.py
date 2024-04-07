@@ -1,5 +1,7 @@
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import get_user_model
+from django import forms
+from .models import Profile
 
 UserModel = get_user_model()
 
@@ -17,3 +19,12 @@ class CookingUserCreationForm(UserCreationForm):
     class Meta(UserCreationForm.Meta):
         model = UserModel
         fields = ('email',)
+
+
+class ProfileForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        fields = ['first_name', 'last_name', 'about', 'profile_picture']
+        widgets = {
+            'about': forms.Textarea(attrs={'rows': 4}),
+        }
