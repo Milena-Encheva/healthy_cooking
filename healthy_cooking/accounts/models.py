@@ -38,6 +38,7 @@ class CookingUser(auth_models.AbstractBaseUser, auth_models.PermissionsMixin):
 class Profile(models.Model):
     MAX_FIRST_NAME_LENGTH = 30
     MAX_LAST_NAME_LENGTH = 30
+    MAX_ABOUT_LENGTH = 250
 
     first_name = models.CharField(
         max_length=MAX_FIRST_NAME_LENGTH,
@@ -51,6 +52,11 @@ class Profile(models.Model):
         null=True,
     )
 
+    about = models.TextField(
+        max_length=MAX_ABOUT_LENGTH,
+        blank=True,
+        null=True,
+    )
     profile_picture = models.URLField(
         blank=True,
         null=True,
@@ -67,3 +73,4 @@ class Profile(models.Model):
         if self.first_name and self.last_name:
             return f"{self.first_name} {self.last_name}"
         return self.first_name or self.last_name
+

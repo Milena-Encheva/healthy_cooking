@@ -1,4 +1,4 @@
-<!-- accounts/profile_details.html -->
+{% load static %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -6,61 +6,63 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile Details</title>
-    <style>
-        .recipe-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-        .recipe {
-            width: 200px;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-        .recipe img {
-            width: 100%;
-            border-radius: 5px;
-        }
-        .recipe h3 {
-            margin-top: 5px;
-            margin-bottom: 10px;
-            font-size: 16px;
-        }
-    </style>
+    <link rel="stylesheet" href="{% static 'css/profile_details.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
-    <h1>Profile Details</h1>
 
-    <!-- Displaying User Information -->
     {% if object.user %}
-        <h2>User Information</h2>
-        <p>Name: {{ object.user.get_full_name }}</p>
-        <!-- You can use either get_first_name or get_last_name as per your requirement -->
-        {% if object.user.profile_picture %}
-            <p>Profile Picture: <img src="{{ object.user.profile_picture.url }}" alt="Profile Picture"></p>
-        {% endif %}
+          <header class="material-header">
+            <div class="profile-actions">
+                <a href="{% url 'profile_edit' object.user.pk %}">
+                    <h2>Edit Profile</h2>
+                    <i class="fas fa-edit"></i>
+                </a>
+            </div>
+
+            <h1>{{ object.user.profile.full_name }}</h1>
+
+            <div class="profile-actions">
+                <a href="{% url 'profile_delete' object.user.pk %}">
+                    <h2>Delete Profile</h2>
+                    <i class="fas fa-trash"></i>
+                </a>
+            </div>
+        </header>
+        <div class="container">
+            {% if object.user.profile.profile_picture %}
+                <div class="profile-picture">
+                    <img src="{{ object.user.profile.profile_picture }}" alt="Profile Picture">
+                </div>
+            {% endif %}
+        </div>
+        <div class="container">
+            {% if object.user.profile.about %}
+                {{ object.user.profile.about}}
+            {% endif %}
+        </div>
     {% endif %}
 
     <!-- Displaying Recipes -->
     {% if object.user.recipes.exists %}
-        <h2>Recipes</h2>
-        <div class="recipe-container">
+        <h1 class="recipes-heading">My Recipes:</h1>
+        <div class="container">
             {% for recipe in object.user.recipes.all %}
                 <div class="recipe">
                     {% if recipe.photo %}
                         <img src="{{ recipe.photo.url }}" alt="{{ recipe.title }}">
                     {% else %}
                         <img src="https://via.placeholder.com/200x200" alt="Placeholder Image">
-
                     {% endif %}
+                    <a href="{% url 'recipe_detail' recipe.id %}"> <!-- Add the URL of the recipe detail view -->
                     <h3>{{ recipe.title }}</h3>
-                    <!-- You can display more information about each recipe as per your model -->
+                    </a>
                 </div>
             {% endfor %}
         </div>
     {% else %}
         <p>No recipes found for this user.</p>
     {% endif %}
+
 </body>
 </html>

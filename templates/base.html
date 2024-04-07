@@ -17,7 +17,7 @@
                     {% if request.user.is_authenticated %}
                     <li class="nav-item {% if request.resolver_match.url_name == 'add recipe' %} active {% endif %}">
                         <!-- Link to Add Recipe Page -->
-                        <a href="{% url 'add recipe' %}">
+                        <a href="{% url 'recipe_add' %}">
                             <i class="fas fa-plus"></i> Add Recipe
                         </a>
                     </li>

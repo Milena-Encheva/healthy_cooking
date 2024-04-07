@@ -3,7 +3,7 @@
 @import "./recipe_list.css";
 @import './login.css';
 @import "./recipe_details.css";
-@import "./vote_recipe.css";
+@import "edit_profile.css";
 
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css');
 
@@ -16,7 +16,7 @@
 
 /* Header Styles */
 .material-header {
-    background-color: #C3E6CB; /* Pale pastel green background */
+    background-color: #C3E6CB;
     color: #333; /* Dark text color */
     padding: 35px;
     display: flex;
@@ -87,15 +87,6 @@ body {
     z-index: 1000;
 }
 
-/* Material Header */
-.material-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 30px;
-
-}
-
 .logo {
     display: flex;
     align-items: center;
@@ -155,4 +146,18 @@ body {
     .nav-item a {
         font-size: 16px;
     }
+}
+
+
+.profile-actions a i.fas.fa-edit {
+    font-size: 30px; /* Adjust the size as needed */
+    color: #555; /* Adjust the color as needed */
+}
+
+.material-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 30px;
+
 }

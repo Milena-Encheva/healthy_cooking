@@ -5,6 +5,7 @@ from healthy_cooking.recipes.models import Recipe, Rating
 from healthy_cooking.recipes.forms import RecipeCreateForm, RatingForm
 from django.contrib.auth import get_user_model
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.http import JsonResponse
 from django.shortcuts import get_object_or_404
 from django.http import HttpResponseRedirect
@@ -27,6 +28,34 @@ class RecipeCreateView(view.CreateView):
         form.instance.user = self.request.user
         return super().form_valid(form)
 
+
+class RecipeUpdateView(LoginRequiredMixin, UserPassesTestMixin, view.UpdateView):
+    model = Recipe
+    form_class = RecipeCreateForm  # Use the same form for updating
+    template_name = 'recipes/edit_recipe.html'  # Path to your HTML template
+
+    def get_success_url(self):
+        # Redirect to the recipe's detail view after a successful update
+        return reverse_lazy('recipe_detail', kwargs={'pk': self.object.pk})
+
+    def test_func(self):
+        # Ensure that only the user who created the recipe can edit it
+        recipe = self.get_object()
+        return self.request.user == recipe.user
+
+    def form_valid(self, form):
+        # Optional: Add any additional processing here
+        return super().form_valid(form)
+
+
+class RecipeDeleteView(LoginRequiredMixin, UserPassesTestMixin, view.DeleteView):
+    model = Recipe
+    template_name = 'recipes/recipe_confirm_delete.html'
+    success_url = reverse_lazy('recipe_list')  # Redirect to recipe list view or your preferred view
+
+    def test_func(self):
+        recipe = self.get_object()
+        return self.request.user == recipe.user
 
 class RecipeDetailView(view.DetailView):
     model = Recipe
