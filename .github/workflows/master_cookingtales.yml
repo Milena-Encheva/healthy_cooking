@@ -17,18 +17,21 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Install Python 3
-        run: |
-          sudo apt-get update
-          sudo apt-get install python3 python3-venv
-
-      - name: Verify Python 3 Installation
-        run: python3 --version 
-
       - name: Set up Python version
         uses: actions/setup-python@v3
         with:
           python-version: '3.9'
+
+      - name: Verify Python Installation
+        run: python --version 
+
+      - name: Create and start virtual environment
+        run: python -m venv venv || python3 -m venv venv
+          python -m venv venv
+          source venv/bin/activate
+      
+      - name: Verify venv Python Installation
+        run: python --version  # Verify Python in the venv environment
 
       - name: Create and start virtual environment
         run: |
