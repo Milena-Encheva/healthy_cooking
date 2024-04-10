@@ -131,15 +131,17 @@ MEDIA_ROOT = BASE_DIR / 'mediafiles'
 
 MEDIA_URL = "/media/"
 
-# url prefix in the client
+
 STATIC_URL = 'staticfiles/'
 
-# Directories on the file system
-STATICFILES_DIRS = (
-    BASE_DIR / "staticfiles",
-)
 
-STATIC_ROOT = BASE_DIR / "static"
+if DEBUG:
+    STATICFILES_DIRS = (
+        BASE_DIR / "staticfiles",
+    )
+else:
+    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
