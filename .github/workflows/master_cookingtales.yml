@@ -21,9 +21,9 @@ jobs:
       - name: ls to see the content
         run: ls
   
-      - name: create venv 
+      - name: remove venv 
         run: |
-              mkdir ./venv
+              rm -r ./venv
       
       - name: Create and start virtual environment
         run: |
