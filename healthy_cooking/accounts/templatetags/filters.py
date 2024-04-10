@@ -4,6 +4,7 @@ register = template.Library()
 
 
 @register.filter
-def placeholder(value, token):
-    value.field.widget.attrs['placeholder'] = token
-    return value
+def placeholder(field, placeholder):
+
+    field.field.widget.attrs['placeholder'] = placeholder
+    return field

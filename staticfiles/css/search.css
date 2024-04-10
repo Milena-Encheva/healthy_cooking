@@ -114,5 +114,10 @@ body {
 }
 
 .search-form button[type="submit"]:hover {
-    background-color: #45a049;
+    background-color: #2eb872;
 }
+
+.recipe-link {
+    text-decoration: none;
+    color: #333333;
+  }

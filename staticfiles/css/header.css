@@ -106,7 +106,7 @@ button, a.cancel {
     text-decoration: none;
     color: white;
     padding: 10px 20px;
-    background-color: #4CAF50;
+    background-color: #2eb872;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -116,5 +116,15 @@ button, a.cancel {
 
 button:hover, a.cancel:hover {
     opacity: 0.8;
+}
+
+.main-image {
+    width: 250px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
 

@@ -21,18 +21,19 @@
     font-size: 40px;
     color: #333;
 }
-
-.second-option {
-    text-align: justify;
-    margin-top: 20px;
+.login-btn {
+    background-color: #4CAF50; /* Green button color */
+    color: white;
+    padding: 12px 20px; /* Adjust padding */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: inline-block;
+    margin-top: 10px;
 }
 
-.second-option p {
-    margin: 10px 0;
-}
-
-.second-option a {
-    color: #007bbf;
-    text-decoration: none;
+.login-btn:hover {
+    background-color: #45a049; /* Darker green button color on hover */
 }
 

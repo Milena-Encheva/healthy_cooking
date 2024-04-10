@@ -1,5 +1,6 @@
 from django import forms
 from healthy_cooking.recipes.models import Recipe
+from django.forms import ClearableFileInput
 
 
 class CustomURLInput(forms.URLInput):
@@ -13,7 +14,7 @@ class RecipeBaseForm(forms.ModelForm):
         widgets = {
             'instructions': forms.Textarea(attrs={'cols': 80, 'rows': 20}),
             'ingredients': forms.Textarea(attrs={'cols': 80, 'rows': 10}),
-            'photo': forms.FileInput()
+            'photo': ClearableFileInput(attrs={'accept': 'image/*'})
         }
 
         labels = {

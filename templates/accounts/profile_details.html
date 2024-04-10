@@ -2,29 +2,36 @@
 {% load static %}
 
 {% block title %}
-    {{ object.user.profile.full_name }}
+     {% if object.user.profile.full_name %}
+        {{ object.user.profile.full_name }}
+    {% else %}
+        Unknown user
+    {% endif %}
 {% endblock %}
 
 {% block header_title %}
-    {{ object.user.profile.full_name }}
+     {% if object.user.profile.full_name %}
+        {{ object.user.profile.full_name }}
+    {% else %}
+        Unknown user
+    {% endif %}
 {% endblock %}
 
 {% block content %}
     <link rel="stylesheet" href="{% static 'css/header.css' %}">
     <link rel="stylesheet" href="{% static 'css/profile_details.css' %}">
+    {% if object.user.profile.profile_picture%}
     <div class="container">
-        {% if object.user.profile.profile_picture %}
             <div class="profile-picture">
                 <img src="{{ object.user.profile.profile_picture }}" alt="Profile Picture">
             </div>
-        {% endif %}
     </div>
+    {% endif %}
+    {% if object.user.profile.about and object.user.profile.about != ''  %}
     <div class="container">
-        {% if object.user.profile.about %}
             <p>{{ object.user.profile.about }}</p>
-        {% endif %}
     </div>
-
+     {% endif %}
     <!-- Displaying Recipes -->
     {% if object.user.recipes.exists %}
         <h1 class="recipes-heading">My Recipes:</h1>
@@ -44,6 +51,6 @@
             {% endfor %}
         </div>
     {% else %}
-        <p>No recipes found for this user.</p>
+        <p style="text-align: center;">No recipes found for this user.</p>
     {% endif %}
 {% endblock %}

@@ -66,3 +66,8 @@
 .view-recipe-button .btn:hover {
     background-color: #209d5a; /* Darker shade of green on hover */
 }
+
+a.no-underline {
+    text-decoration: none;
+    color: #333333;
+}

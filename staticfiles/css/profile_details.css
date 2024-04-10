@@ -26,31 +26,31 @@ h2, p {
 
 .recipe {
     width: calc(33.33% - 20px);
-    margin: 0 10px 20px; /* Add margin to create space between recipes */
-    display: inline-block; /* Ensure recipes are displayed inline */
-    vertical-align: top; /* Align recipes to the top */
-    box-sizing: border-box; /* Include padding and border in element's total width and height */
+    margin: 0 10px 20px;
+    display: inline-block;
+    vertical-align: top;
+    box-sizing: border-box;
 }
 
 
-/* CSS for equalizing image dimensions */
 .recipe img {
-    width: 200px; /* Set a fixed width for all images */
-    height: 300px; /* Set a fixed height for all images */
-    object-fit: cover; /* Maintain aspect ratio while filling the container */
+    width: 200px;
+    height: 300px;
+    object-fit: cover;
     border-radius: 8px;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
     margin-bottom: 20px;
-    display: inline-block; /* Ensure the image is treated as a block element */
+    display: inline-block;
 }
 
 .recipe h3 {
+    text-decoration: none;
     margin-top: 10px;
     color: #333;
-    font-size: 1em;
+    font-size: 20px;
     font-family: 'Satisfy', cursive;
-}
 
+}
 
 .recipes-heading {
     font-family: 'Satisfy', cursive;

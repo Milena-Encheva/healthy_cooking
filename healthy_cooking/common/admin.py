@@ -6,6 +6,8 @@ from .models import Category
 class CategoriesAdmin(admin.ModelAdmin):
     list_display = ('name', 'photo')
     verbose_name_plural = 'Categories'
+
+
     
 
 

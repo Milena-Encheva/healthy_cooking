@@ -31,8 +31,8 @@ class RecipeCreateView(view.CreateView):
 
 class RecipeUpdateView(LoginRequiredMixin, UserPassesTestMixin, view.UpdateView):
     model = Recipe
-    form_class = RecipeCreateForm  # Use the same form for updating
-    template_name = 'recipes/edit_recipe.html'  # Path to your HTML template
+    form_class = RecipeCreateForm
+    template_name = 'recipes/edit_recipe.html'
 
     def get_success_url(self):
         # Redirect to the recipe's detail view after a successful update

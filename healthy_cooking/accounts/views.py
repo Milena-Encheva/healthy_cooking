@@ -65,6 +65,10 @@ class EditProfileView(OwnerRequiredMixin, views.UpdateView):
     def get_success_url(self):
         return reverse_lazy('profile_details', kwargs={'pk': self.object.pk})
 
+    def form_invalid(self, form):
+        return render(self.request, self.template_name,
+                      {'form': form, 'error_message': "Please correct the errors below."})
+
 
 class DeleteProfileView(views.DeleteView):
     model = UserModel
@@ -77,4 +81,7 @@ class DeleteProfileView(views.DeleteView):
     def delete(self, request, *args, **kwargs):
         user = self.get_object()
         user.delete()
+        return super().delete(request, *args, **kwargs)
+
+
 

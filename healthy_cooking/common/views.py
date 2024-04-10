@@ -4,12 +4,13 @@ from healthy_cooking.common.forms import SearchForm
 from healthy_cooking.common.models import Category
 from healthy_cooking.recipes.models import Recipe
 from django.db.models import Max
+from django.shortcuts import render
 
 
 def home(request):
     categories = Category.objects.all()
     # Get the recipe of the day - the one with the highest rating
-    recipe_of_the_day = Recipe.objects.annotate(max_rating=Max('ratings__rating')).order_by('-max_rating').first()
+    recipe_of_the_day = Recipe.objects.annotate(max_rating=Max('ratings__rating')).order_by('max_rating').first()
     return render(request, 'common/home.html', {'categories': categories, 'recipe_of_the_day': recipe_of_the_day})
 
 
@@ -27,3 +28,10 @@ def search_results(request):
         'results': results,
         'search_attempted': search_attempted
     })
+
+
+def custom_404_view(request, exception):
+    """
+    Custom view to handle 404 errors (page not found).
+    """
+    return render(request, '404.html', status=404)

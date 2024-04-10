@@ -1,0 +1,22 @@
+
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 50px 20px;
+}
+
+.error-content {
+    text-align: center;
+}
+
+.error-content h2 {
+    font-size: 36px;
+    color: #FF5733;
+}
+
+.error-content p {
+    font-size: 18px;
+    color: #666;
+    margin-top: 20px;
+}

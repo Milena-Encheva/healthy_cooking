@@ -6,7 +6,7 @@
         <div class="recipe-container">
             {% for recipe in recipes %}
             <div class="recipe-card">
-                <h3><a href="{% url 'recipe_detail' recipe.pk %}">{{ recipe.title }}</a></h3>
+                <h3><a href="{% url 'recipe_detail' recipe.pk %}" class="no-underline">{{ recipe.title }}</a></h3>
                 <img src="{{ recipe.photo.url }}" alt="{{ recipe.title }}">
                 <p>Posted by: {{ recipe.user.email }}</p>
                 <p>Category: {{ recipe.category.name }}</p>

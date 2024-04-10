@@ -14,7 +14,6 @@
     <link rel="stylesheet" href="{% static 'css/header.css' %}">
 
     <div class="homepage-container">
-        <!-- Display the search form -->
         <div class="search-form">
             <form method="get" action="{% url 'search_results' %}">
                 {{ form.as_p }}
@@ -27,7 +26,7 @@
             {% if results %}
                 {% for recipe in results %}
                     <div class="recipe-card">
-                        <h3><a href="{% url 'recipe_detail' recipe.pk %}">{{ recipe.title }}</a></h3>
+                        <h3><a  class="recipe-link" href="{% url 'recipe_detail' recipe.pk %}">{{ recipe.title }}</a></h3>
                         <img src="{{ recipe.photo.url }}" alt="{{ recipe.title }}">
                         <p>Posted by: {{ recipe.user.email }}</p>
                         <p>Category: {{ recipe.category.name }}</p>
