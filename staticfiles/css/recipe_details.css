@@ -9,14 +9,6 @@
     text-align: center;
 }
 
-.main-image {
-    max-width: 300px;
-    height: auto;
-    border-radius: 8px; /* Added rounded corners to the images */
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
-    margin-bottom: 20px;
-}
-
 h2, p {
     color: #333;
 }
