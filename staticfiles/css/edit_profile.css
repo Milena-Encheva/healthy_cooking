@@ -1,78 +1,64 @@
 @import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap');
 
-body {
-    font-family: 'Open Sans', sans-serif; /* Switched to Open Sans for better readability in body */
-    margin: 0;
-    padding: 0;
-    background-color: #f0fff0; /* Pale green background */
-}
-
-header, footer {
-    padding-top: 55px;
-    width: 100%;
-    background-color: #c3e6cb;
+.add_recipe_container {
+    max-height: 500px; /* Adjusted max-height */
+    max-width: 80%; /* Adjusted max-width */
+    margin: 5px auto; /* Reduced margin */
+    padding: 10px; /* Reduced padding */
+    background-color: #ffffff;
+    border-radius: 6px;
+    box-shadow: 0 2px 3px rgba(0,0,0,0.2);
     text-align: center;
-    text-justify: auto;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.3); /* Increased shadow */
 }
 
-header h1, footer p {
+/* Adjust the font size and margin for the title */
+h2 {
     font-family: 'Satisfy', cursive;
-    text-align: center;
     color: #333;
-    margin: 0; /* Remove any default margin */
-    padding: 0 0 20px; /* Adjust padding to ensure vertical centering */
-    line-height: 1.2; /* Adjust line height to tighten the text block, if necessary */
-}
-/* Darker text for better contrast */
-
-
-.container {
-    max-width: 1000px;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-    text-align: center;
+    font-size: 18px; /* Adjusted font size */
+    margin-bottom: 4px; /* Reduced margin */
 }
 
-h2, p {
-    color: #333;
+/* Adjust the margin for the form */
+form {
+    margin-top: 8px; /* Reduced margin */
 }
 
-.form-group {
-    margin-bottom: 20px;
+/* Adjust the font size and padding for form labels */
+form label {
+    font-family: 'Satisfy', cursive;
+    display: block;
+    font-weight: bold;
+    margin-bottom: 2px; /* Reduced margin */
+    font-size: 18px; /* Adjusted font size */
 }
 
-input[type="text"],
-input[type="email"],
-textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-    box-sizing: border-box; /* Ensure padding and border are included in the width */
+/* Adjust the padding for form inputs and textareas */
+form input[type="text"],
+form input[type="file"],
+form textarea {
+    width: 88%; /* Adjusted width */
+    padding: 4px; /* Reduced padding */
+    margin-bottom: 4px; /* Reduced margin */
 }
 
-textarea {
-    resize: vertical; /* Allow vertical resizing */
+/* Adjust the height of textareas */
+form textarea {
+    height: 80px; /* Adjusted height */
 }
 
-.submit-btn {
-    padding: 10px 20px;
-    background-color: #2eb872; /* Pale green background */
-    color: #333; /* Dark text color */
+/* Adjust the padding for form buttons */
+form button[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 8px 12px; /* Adjusted padding */
     border: none;
-    border-radius: 5px;
+    border-radius: 4px;
     cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s; /* Smooth transition for hover effect */
+    transition: background-color 0.3s ease;
 }
 
-.submit-btn:hover {
-    background-color: #c8e6c9; /* Slightly darker shade of green on hover */
+/* Hover effect for form buttons */
+form button[type="submit"]:hover {
+    background-color: #45a049;
 }
-

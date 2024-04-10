@@ -7,7 +7,7 @@ from django.contrib.auth import get_user_model
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.http import JsonResponse
-from django.shortcuts import get_object_or_404
+from django.shortcuts import get_object_or_404, render
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 
@@ -57,13 +57,15 @@ class RecipeDeleteView(LoginRequiredMixin, UserPassesTestMixin, view.DeleteView)
         recipe = self.get_object()
         return self.request.user == recipe.user
 
+
 class RecipeDetailView(view.DetailView):
     model = Recipe
     template_name = 'recipes/recipe_details.html'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['rating_form'] = RatingForm()  # Add the form to the context
+        context['rating_form'] = RatingForm()
+        context['is_recipe_detail'] = True
         return context
 
 
@@ -91,7 +93,22 @@ def rate_recipe(request, pk):
     if request.method == 'POST':
         rating_value = int(request.POST.get('rating'))
         recipe = get_object_or_404(Recipe, pk=pk)
-        Rating.objects.create(user=request.user, recipe=recipe, rating=rating_value)
-        # Redirect the user back to the recipe details page
-        return HttpResponseRedirect(reverse('recipe_detail', kwargs={'pk': pk}))
-    return JsonResponse({'success': False})
+        user = request.user
+
+        # Check if the user has already rated this recipe
+        existing_rating = Rating.objects.filter(user=user, recipe=recipe).exists()
+        if existing_rating:
+            # If the user has already voted, set a message to display in the template
+            message = 'You have already voted for this recipe.'
+        else:
+            # If the user has not yet voted, create a new rating
+            Rating.objects.create(user=user, recipe=recipe, rating=rating_value)
+            # Redirect the user back to the recipe details page
+            return HttpResponseRedirect(reverse('recipe_detail', kwargs={'pk': pk}))
+
+    else:
+        # If the request method is not POST, set an error message
+        message = 'Invalid request method.'
+
+    # Render the template with the message
+    return render(request, 'rate_recipe.html', {'message': message})

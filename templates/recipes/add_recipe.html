@@ -1,21 +1,25 @@
+{% extends 'partials/layout/header.html' %}
 {% load static %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Recipe</title>
+{% block title %}
+    Add a New Recipe
+{% endblock %}
+
+{% block header_title %}
+    Add a New Recipe
+{% endblock %}
+
+{% block content %}
+     <link rel="stylesheet" href="{% static 'css/header.css' %}">
     <link rel="stylesheet" href="{% static 'css/add_recipe.css' %}">
-</head>
-<body>
+
     <div class="container">
-        <h2>Add a New Recipe</h2>
         <form action="{% url 'recipe_add' %}" method='post' enctype="multipart/form-data">
             {% csrf_token %}
             {{ form.as_p }}
             <button type="submit">Save</button>
         </form>
     </div>
-</body>
-</html>
+{% endblock %}
+
+

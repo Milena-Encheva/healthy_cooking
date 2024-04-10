@@ -18,7 +18,6 @@
 }
 
 .login-register-box h1 {
-    font-family: 'FontAwesome';
     font-size: 40px;
     color: #333;
 }
@@ -37,6 +36,3 @@
     text-decoration: none;
 }
 
-.second-option a:hover {
-    text-decoration: underline;
-}

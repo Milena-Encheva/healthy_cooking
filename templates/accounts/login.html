@@ -9,7 +9,7 @@
         <form action="{% url 'login' %}?next={{ next }}" method="post">
             {{ form }}
             {% csrf_token %}
-            <!-- Login Button-->
+
             <button type="submit" class="btn btn-primary">Log in</button>
 
         </form>

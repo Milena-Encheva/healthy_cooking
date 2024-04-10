@@ -1,0 +1,118 @@
+/* Add your custom styles here */
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    background-color: #f0f0f0;
+}
+
+.homepage-container {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.recipe-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; /* Allow recipes to wrap if they exceed container width */
+    gap: 20px; /* Add some space between recipes */
+    padding: 20px; /* Add padding for better spacing */
+}
+
+.recipe-card {
+    width: 250px;
+    height: auto;
+    background-color: #ffffff;
+    border-radius: 20px; /* Increased border radius for a fancy look */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced shadow */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease; /* Add transition for hover effect */
+}
+
+.recipe-card:hover {
+    transform: scale(1.05); /* Scale up on hover for a fancy effect */
+}
+
+.recipe-card img {
+    width: 100%; /* Make sure the image takes up the full width of its container */
+    height: 200px; /* Set a fixed height for the images */
+    object-fit: cover; /* Maintain aspect ratio and cover the entire container */
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.recipe-card h3 {
+    margin: 15px 0;
+    font-size: 24px;
+    font-family: 'Satisfy', cursive;
+    color: #333;
+    text-decoration: none;
+}
+
+.recipe-card p {
+    margin: 10px 0;
+    font-size: 16px;
+    color: #666;
+}
+
+.view-recipe-button {
+    text-align: center; /* Center the button */
+    margin-top: 15px; /* Increase the margin from other elements */
+}
+
+.view-recipe-button .btn {
+    padding: 10px 30px; /* Increase padding to make the button larger */
+    background-color: #2eb872; /* Change background color to green */
+    color: #ffffff;
+    border: none;
+    border-radius: 30px; /* Increase border-radius for a rounded look */
+    text-decoration: none;
+    font-size: 18px; /* Decrease font size slightly */
+    font-weight: bold; /* Add bold font weight for emphasis */
+    transition: background-color 0.3s ease;
+}
+
+.view-recipe-button .btn:hover {
+    background-color: #209d5a; /* Darker shade of green on hover */
+}
+
+.search-form {
+    width: 100%;
+    max-width: 600px; /* Adjust based on your design */
+    margin: 20px auto;
+    text-align: center;
+}
+
+.search-form label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.search-form input[type="text"] {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    width: calc(100% - 24px); /* Adjust the width based on padding and border */
+    margin-bottom: 10px; /* Spacing between input and button */
+}
+
+.search-form button[type="submit"] {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 20%;
+}
+
+.search-form button[type="submit"]:hover {
+    background-color: #45a049;
+}

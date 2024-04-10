@@ -1,0 +1,46 @@
+{% extends 'partials/layout/header.html' %}
+{% load static %}
+
+{% block title %}
+    Search Recipe
+{% endblock %}
+
+{% block header_title %}
+    Search Recipe
+{% endblock %}
+
+{% block content %}
+    <link rel="stylesheet" href="{% static 'css/search.css' %}">
+    <link rel="stylesheet" href="{% static 'css/header.css' %}">
+
+    <div class="homepage-container">
+        <!-- Display the search form -->
+        <div class="search-form">
+            <form method="get" action="{% url 'search_results' %}">
+                {{ form.as_p }}
+                <button type="submit">Search</button>
+            </form>
+        </div>
+
+        <div class="recipe-container">
+        {% if search_attempted %}
+            {% if results %}
+                {% for recipe in results %}
+                    <div class="recipe-card">
+                        <h3><a href="{% url 'recipe_detail' recipe.pk %}">{{ recipe.title }}</a></h3>
+                        <img src="{{ recipe.photo.url }}" alt="{{ recipe.title }}">
+                        <p>Posted by: {{ recipe.user.email }}</p>
+                        <p>Category: {{ recipe.category.name }}</p>
+                        <p>Average Rating: {{ recipe.average_rating|default:"Not rated yet" }}</p>
+                        <div class="view-recipe-button">
+                            <a href="{% url 'recipe_detail' recipe.pk %}" class="btn">View Recipe</a>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p>No recipes found.</p>
+            {% endif %}
+        {% endif %}
+        </div>
+    </div>
+{% endblock %}

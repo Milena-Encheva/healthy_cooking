@@ -1,163 +1,99 @@
-/* Import external stylesheets */
 @import './home.css';
+@import "./add_recipe.css";
 @import "./recipe_list.css";
-@import './login.css';
+@import "./edit_profile.css";
 @import "./recipe_details.css";
-@import "edit_profile.css";
+@import "./login.css";
+@import "./profile_details.css";
+@import "./delete_profile.css";
 
+@import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css');
 
-/* Global Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+body {
+    background: linear-gradient(to right, #F0FAF0, #E0F7E0, #F0FAF0);
+    font-family: 'Satisfy', cursive;
+    margin: 0; /* Add this line to remove default margin */
+    font-size: large;
+    color: #333;
+    padding-bottom: 100px; /* Adjust this value according to the height of your footer */
 }
 
-/* Header Styles */
-.material-header {
-    background-color: #C3E6CB;
-    color: #333; /* Dark text color */
-    padding: 35px;
+
+/* Styling for the title */
+.cooking-title {
+    text-align: center;
+    color: #333;
+    font-size: 35px;
+    margin: 0;
+}
+
+/* Styling for the navbar */
+.navbar {
+    position: fixed;
+    padding: 10px 20px;
+    top: 0;
+    left: 0;
+    width: 97%;
+    background-color:  #C3E6CB;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
     display: flex;
     justify-content: space-between;
-    align-items: center; /* Align items vertically */
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Shadow for header */
 }
 
-.material-header h1 {
-    margin: 0; /* Reset margin */
-    font-size: 35px;
-    /* No need for align-content, as it's for aligning flex lines in multi-line flex containers */
+.nav-links {
+    display: flex;
+    align-items: center;
 }
 
-.material-header .material-icons {
-    font-size: 30px; /* Icon size */
-    cursor: pointer;
+.nav-item {
+    color: #333;
+    text-decoration: none;
+    font-size: 25px;
+    display: inline-flex;
+    align-items: center;
+    margin-right: 20px;
 }
 
-/* Footer Styles */
-.material-footer {
-    background-color: #C3E6CB; /* Pale pastel green background */
-    color: #333; /* Dark text color */
+
+.nav-item-placeholder {
+    width: 110px;
+    height: 40px;
+    display: inline-block;
+    margin-right: 20px;
+}
+
+
+.nav-item:hover {
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        padding: 5px 10px;
+    }
+
+    .cooking-title {
+        font-size: 20px;
+    }
+
+    .nav-item {
+        font-size: 20px;
+    }
+}
+
+.footer {
+    background-color: #C3E6CB;
+    color: #333;
     padding: 10px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: fixed; /* Fixed position at the bottom */
-    bottom: 0;
-    width: calc(100% - 40px); /* Subtracting the padding from the width */
-    box-shadow: 0 -2px 5px rgba(0,0,0,0.2); /* Shadow for footer */
-}
-
-/* Main Content Styles */
-main {
-    padding: 20px; /* Add padding to main content */
-}
-
-/* Additional Styling for Links */
-a {
-    color: #333; /* Dark green color for links */
-    text-decoration: none; /* Remove default underline */
-    font-size: 18px; /* Reduce font size for better readability */
-}
-
-a:hover {
-    text-decoration: underline; /* Underline on hover */
-}
-
-/* Additional Styles for Body */
-body {
-    padding-top: 160px;
-    font-family: 'Satisfy', cursive;
-    font-size: large;
-    color: #333;
-    background: linear-gradient(to right, #F0FAF0, #E0F7E0, #F0FAF0);
-    padding-bottom: 100px; /* Adjust this value according to the height of your footer */
-}
-
-/* Navbar Styles */
-.navbar {
     position: fixed;
-    top: 0;
+    bottom: 0;
     left: 0;
     width: 100%;
-    background-color: #fff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
+    box-shadow: 0 -2px 5px rgba(0,0,0,0.2);
 }
 
-.logo {
-    display: flex;
-    align-items: center;
-}
-
-.logo img {
-    width: 35px;
-    margin-right: 10px;
-}
-
-.logo a {
-    color: #333;
-    text-decoration: none;
-    font-size: 35px;
-    font-weight: bold;
-}
-
-.navbar-menu ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-}
-
-.nav-item {
-    margin-right: 20px;
-}
-
-.nav-item:last-child {
-    margin-right: 0;
-}
-
-.nav-item a {
-    color: #333;
-    text-decoration: none;
-    font-size: 25px;
-    display: flex;
-    align-items: center;
-}
-
-.nav-item a i {
-    margin-right: 5px; /* Adjust icon-text spacing */
-    font-size: 20px; /* Adjust icon size */
-}
-
-
-/* Responsive Styles */
-@media (max-width: 768px) {
-    .material-header {
-        padding: 10px; /* Adjust padding for smaller screens */
-    }
-
-    .logo a {
-        font-size: 20px;
-    }
-
-    .nav-item a {
-        font-size: 16px;
-    }
-}
-
-
-.profile-actions a i.fas.fa-edit {
-    font-size: 30px; /* Adjust the size as needed */
-    color: #555; /* Adjust the color as needed */
-}
-
-.material-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 30px;
-
-}

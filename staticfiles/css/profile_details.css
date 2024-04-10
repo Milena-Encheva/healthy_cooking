@@ -1,39 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap');
 
-body {
-    font-family: 'Open Sans', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f0fff0;
-}
 
-header, footer {
-    padding-top: 55px;
-    width: 100%;
-    background-color: #c3e6cb;
-    text-align: center;
-    text-justify: auto;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
-}
-
-header h1, footer p {
-    font-family: 'Satisfy', cursive;
-    text-align: center;
-    color: #333;
-    margin: 0;
-    padding: 0 0 20px;
-    line-height: 1.2;
-}
-
-.h1 {
-    font-family: 'Satisfy', cursive;
-    text-align: center;
-    color: #333;
-    margin: 0;
-    padding: 0 0 20px;
-    line-height: 1.2;
-}
 .container {
     max-width: 1000px;
     margin: 20px auto;
@@ -79,13 +47,10 @@ h2, p {
 .recipe h3 {
     margin-top: 10px;
     color: #333;
-    font-size: 1em; /* Adjust font size */
+    font-size: 1em;
+    font-family: 'Satisfy', cursive;
 }
 
-.recipe p {
-    color: #666;
-    font-size: 0.8em; /* Adjust font size */
-}
 
 /* Style for "My Recipes" heading */
 .recipes-heading {
@@ -97,62 +62,9 @@ h2, p {
     line-height: 1.2;
 }
 
-
-/* Additional styles for the recipe container */
 .recipe-container {
     margin-bottom: 40px;
 }
 
-.material-header {
-    max-width: 1280px;
-    margin: 0 auto;
-    background-color: #C3E6CB;
-    color: #333;
-    padding: 35px; /* Adjust padding as needed */
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-}
-
-.profile-actions {
-    display: flex;
-    align-items: center;
-    flex-shrink: 0;
-    flex-wrap: wrap;
-}
-
-.profile-actions a {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-right: 40px;
-    margin-left: 40px;
-    text-decoration: none;
-    color: #333;
-}
-
-.profile-actions a h2 {
-    font-size: 12px; /* Adjust font size for headings */
-    margin-top: 3px; /* Adjust margin for headings */
-}
-
-.profile-actions a i {
-    font-size: 18px; /* Adjust icon size */
-    color: #555;
-}
-@media (max-width: 768px) {
-    .material-header {
-        padding: 10px; /* Adjust padding for smaller screens */
-    }
-
-    .profile-actions {
-        margin-top: 5px; /* Adjust space between actions and name on smaller screens */
-    }
-
-    .profile-actions a {
-        margin-right: 5px; /* Adjust margin between actions on smaller screens */
-    }
-}
 
 

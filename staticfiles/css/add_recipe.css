@@ -1,12 +1,4 @@
-/* Add your custom styles here */
-
-body {
-    font-family: 'Open Sans', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f0fff0;
-}
-
+/* add_recipe.css */
 .container {
     max-width: 600px;
     margin: 20px auto;
@@ -17,18 +9,13 @@ body {
     text-align: center; /* Center the content horizontally */
 }
 
-h2 {
-    font-family: 'Satisfy', cursive;
-    color: #333;
-    margin-bottom: 20px;
-}
-
 form {
     margin-top: 20px;
 }
 
 form label {
     display: block;
+    font-family: 'Satisfy', cursive;
     font-weight: bold;
     margin-bottom: 5px;
 }
@@ -41,23 +28,29 @@ form textarea {
     margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    box-sizing: border-box; /* Include padding and border in element's total width and height */
+    box-sizing: border-box;
 }
 
 form textarea {
-    height: 150px; /* Set a fixed height for the textarea */
+    height: 150px; /* Increase the height of the textarea */
+    width: 100%; /* Adjust width as needed */
 }
 
 form button[type="submit"] {
-    background-color: #4CAF50; /* Green button color */
+    font-family: 'Open Sans', sans-serif;
+    display: inline-block;
+    margin: 10px;
+    font-size: 16px;
+    text-decoration: none;
     color: white;
-    padding: 15px 20px;
+    padding: 10px 20px;
+    background-color: #4CAF50;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    box-sizing: border-box;
 }
 
 form button[type="submit"]:hover {
-    background-color: #45a049; /* Darker shade on hover */
+    background-color: #45a049;
 }

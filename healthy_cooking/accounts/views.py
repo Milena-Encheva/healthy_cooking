@@ -11,6 +11,7 @@ from healthy_cooking.accounts.models import Profile
 
 UserModel = get_user_model()
 
+
 class OwnerRequiredMixin(AccessMixin):
     """Verify that the current user has this profile."""
 
@@ -48,6 +49,11 @@ class ProfileDetailsView(views.DetailView):
         .all()
 
     template_name = "accounts/profile_details.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['is_profile_detail'] = True
+        return context
 
 
 class EditProfileView(OwnerRequiredMixin, views.UpdateView):

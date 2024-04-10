@@ -1,47 +1,29 @@
+{% extends 'partials/layout/header.html' %}
 {% load static %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile Details</title>
+{% block title %}
+    {{ object.user.profile.full_name }}
+{% endblock %}
+
+{% block header_title %}
+    {{ object.user.profile.full_name }}
+{% endblock %}
+
+{% block content %}
+    <link rel="stylesheet" href="{% static 'css/header.css' %}">
     <link rel="stylesheet" href="{% static 'css/profile_details.css' %}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-</head>
-<body>
-
-    {% if object.user %}
-          <header class="material-header">
-            <div class="profile-actions">
-                <a href="{% url 'profile_edit' object.user.pk %}">
-                    <h2>Edit Profile</h2>
-                    <i class="fas fa-edit"></i>
-                </a>
+    <div class="container">
+        {% if object.user.profile.profile_picture %}
+            <div class="profile-picture">
+                <img src="{{ object.user.profile.profile_picture }}" alt="Profile Picture">
             </div>
-
-            <h1>{{ object.user.profile.full_name }}</h1>
-
-            <div class="profile-actions">
-                <a href="{% url 'profile_delete' object.user.pk %}">
-                    <h2>Delete Profile</h2>
-                    <i class="fas fa-trash"></i>
-                </a>
-            </div>
-        </header>
-        <div class="container">
-            {% if object.user.profile.profile_picture %}
-                <div class="profile-picture">
-                    <img src="{{ object.user.profile.profile_picture }}" alt="Profile Picture">
-                </div>
-            {% endif %}
-        </div>
-        <div class="container">
-            {% if object.user.profile.about %}
-                {{ object.user.profile.about}}
-            {% endif %}
-        </div>
-    {% endif %}
+        {% endif %}
+    </div>
+    <div class="container">
+        {% if object.user.profile.about %}
+            <p>{{ object.user.profile.about }}</p>
+        {% endif %}
+    </div>
 
     <!-- Displaying Recipes -->
     {% if object.user.recipes.exists %}
@@ -49,20 +31,19 @@
         <div class="container">
             {% for recipe in object.user.recipes.all %}
                 <div class="recipe">
+                     <a href="{% url 'recipe_detail' recipe.id %}">
+                        <h3>{{ recipe.title }}</h3>
+                    </a>
                     {% if recipe.photo %}
                         <img src="{{ recipe.photo.url }}" alt="{{ recipe.title }}">
                     {% else %}
                         <img src="https://via.placeholder.com/200x200" alt="Placeholder Image">
                     {% endif %}
-                    <a href="{% url 'recipe_detail' recipe.id %}"> <!-- Add the URL of the recipe detail view -->
-                    <h3>{{ recipe.title }}</h3>
-                    </a>
+
                 </div>
             {% endfor %}
         </div>
     {% else %}
         <p>No recipes found for this user.</p>
     {% endif %}
-
-</body>
-</html>
+{% endblock %}

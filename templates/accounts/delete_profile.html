@@ -1,24 +1,25 @@
+{% extends 'partials/layout/header.html' %}
 {% load static %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Delete Profile</title>
+{% block title %}
+    Delete Profile
+{% endblock %}
+
+{% block header_title %}
+    Delete Profile
+{% endblock %}
+
+
+{% block content %}
+    <link rel="stylesheet" href="{% static 'css/header.css' %}">
     <link rel="stylesheet" href="{% static 'css/delete_profile.css' %}">
-</head>
-<body>
     <div class="delete-container">
         <div class="delete-box">
-            <img src="{% static 'images/cooking_hat.png' %}" alt="Cooking Logo" class="logo">
-            <h1>Delete Profile</h1>
             <p>Are you sure you want to delete your profile?</p>
             <form action="{% url 'profile_delete' request.user.pk %}" method="post">
                 {% csrf_token %}
-                <input type="submit" value="Yes, Delete My Profile">
+                <input type="submit" value="Yes, delete my profile.">
             </form>
         </div>
     </div>
-</body>
-</html>
+{% endblock %}

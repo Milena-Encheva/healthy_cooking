@@ -1,0 +1,124 @@
+/* Consolidated CSS styles */
+@import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css');
+
+
+body {
+    font-family: 'Open Sans', sans-serif; /* Switched to Open Sans for better readability in body */
+    margin: 0;
+    padding: 0;
+    background-color: #f0fff0; /* Pale green background */
+}
+
+header, footer {
+    padding-top: 55px;
+    width: 97%;
+    background-color: #c3e6cb;
+    text-align: center;
+    text-justify: auto;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3); /* Increased shadow */
+}
+
+header h1, footer p {
+    font-family: 'Satisfy', cursive;
+    text-align: center;
+    color: #333;
+    margin: 0;
+    padding: 0 0 20px;
+    line-height: 1.2;
+}
+
+h2 {
+    font-family: 'Satisfy', cursive;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.material-header .logo-image {
+    width: 40px;
+    height: auto;
+    border-radius: 50%;
+}
+
+img:hover {
+    transform: scale(1.05);
+}
+
+
+.cooking-title {
+    text-align: center;
+    color: #333;
+    font-size: 35px;
+    margin: 0;
+}
+
+
+.logo-container {
+    margin: 10px;
+}
+
+.nav-left{
+    margin-left: 0;
+    font-family: 'Satisfy', cursive;
+    font-size: 25px;
+    color: #333;
+    text-decoration: none;
+}
+
+.nav-left:hover {
+    font-weight: bold;
+}
+
+.nav-right {
+    margin-right: 0;
+    font-family: 'Satisfy', cursive;
+    font-size: 25px;
+    color: #333;
+    text-decoration: none;
+}
+
+.nav-right:hover {
+    font-weight: bold;
+}
+
+.delete-button, .edit-button{
+    color: #333;
+    padding: 10px 20px;
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Change mouse cursor to pointer */
+}
+
+.material-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: #c3e6cb;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+.logo-container {
+    margin: 10px;
+}
+
+button, a.cancel {
+    font-family: 'Open Sans', sans-serif;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px;
+    text-decoration: none;
+    color: white;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-sizing: border-box;
+
+}
+
+button:hover, a.cancel:hover {
+    opacity: 0.8;
+}
+

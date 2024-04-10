@@ -1,12 +1,15 @@
 {% extends 'base.html' %}
 {% load static %}
 
+
 {% block main_content %}
     <div class="homepage-container">
+        <!-- Search Form -->
+
         <div class="category-container">
             {% for category in categories %}
                 <div class="category-card">
-                    <a href="{% url 'recipes_by_category' category.name %}">
+                    <a href="{% url 'recipes_by_category' category.name %}" style="text-decoration: none;">
                         <img src="{{ category.photo }}" alt="{{ category.name }}">
                         <h3>{{ category.name }}</h3>
                     </a>
@@ -14,18 +17,16 @@
             {% endfor %}
             <div class="category-card">
                 {% if recipe_of_the_day %}
-                    <a href="{% url 'recipe_detail' recipe_of_the_day.id %}">
-                        <img src="{{ recipe_of_the_day.photo.url }}" alt="{{ recipe_of_the_day.title }}">
+                    <a href="{% url 'recipe_detail' recipe_of_the_day.id %}" style="text-decoration: none;">
+                        <img src="{{ recipe_of_the_day.photo.url }}" alt="{{ recipe_of_the_day.title }}" >
                         <h3>Recipe of the day</h3>
                     </a>
                 {% endif %}
             </div>
         </div>
-           <!-- Button for all recipes -->
+        <!-- Button for all recipes -->
         <div class="all-recipes-button">
             <a href="{% url 'recipe_list' %}" class="btn">All Recipes</a>
         </div>
     </div>
-
-
 {% endblock %}
