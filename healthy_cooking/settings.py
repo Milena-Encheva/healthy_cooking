@@ -9,10 +9,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-5ik85v93n9fd457^uv%mp4yug=939kf5vs)$5iq7!h4pnk8#zx'
 
 
-DEBUG = os.environ.get("DEBUG", 1)
+DEBUG = os.environ.get("DEBUG", "1") == "1"
 ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS", "localhost").split(" ")
 CSRF_TRUSTED_ORIGINS = [f'https://{host}' for host in ALLOWED_HOSTS]
-
 
 
 # Application definition
